@@ -68,8 +68,9 @@ tableTbody.addEventListener('click', (e) => {
 
   tableTbody.querySelectorAll('tr').forEach((tr) => {
     tr.classList.remove('active');
-    currentRow.classList.add('active');
   });
+
+  currentRow.classList.add('active');
 });
 
 function getSortedColumn(allRows, currentThead, indThead) {
@@ -177,7 +178,7 @@ formEmployees.addEventListener('submit', (e) => {
     !inputAge.value.trim() ||
     !inputSalary.value.trim()
   ) {
-    alert('Please fill in all fields.');
+    showNotifications('Please fill in all fields.', 'error')
 
     return;
   }
@@ -252,7 +253,7 @@ tableTbody.addEventListener('dblclick', (e) => {
   currentCell.textContent = '';
 
   const inputInTd = document.createElement('input');
-
+  inputInTd.classList.add('cell-input');
   inputInTd.value = currentValue;
   currentCell.append(inputInTd);
   inputInTd.focus();
